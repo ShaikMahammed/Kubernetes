@@ -5,6 +5,7 @@ metadata:
 spec: 
   selector:
     app: nginx
+    env: Prod
   type: NodePort
   ports:
     - protocol: TCP
