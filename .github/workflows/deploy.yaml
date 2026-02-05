@@ -1,4 +1,4 @@
-name: Kubernetes Local CI/CD
+name: Deploy to Kind Cluster
 
 on:
   push:
@@ -13,11 +13,5 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Show files
-        run: ls
-
-      - name: Apply Pod
-        run: kubectl apply -f Pod.yaml
-
-      - name: Apply Service
-        run: kubectl apply -f Service.yaml
+      - name: Deploy Kubernetes manifests
+        run: kubectl apply -f k8s/
