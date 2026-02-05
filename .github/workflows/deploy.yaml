@@ -1,0 +1,23 @@
+name: Kubernetes Local CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show files
+        run: ls
+
+      - name: Apply Pod
+        run: kubectl apply -f Pod.yaml
+
+      - name: Apply Service
+        run: kubectl apply -f Service.yaml
