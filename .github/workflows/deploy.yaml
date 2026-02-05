@@ -13,5 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Set kubeconfig
+        run: |
+          set KUBECONFIG=C:\kube\config
+          kubectl get nodes
+
       - name: Deploy Kubernetes manifests
         run: kubectl apply -f k8s/
